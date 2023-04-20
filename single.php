@@ -1,11 +1,15 @@
 <!doctype html>
 <html lang="ru">
 <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/8346c104dc.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Custom Styling -->
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -43,104 +47,31 @@
     </div>
 </header>
 
-<!--блок карусели START-->
-<div class="container">
-    <div class="row">
-        <h2 class="slider-title">Топ публикации</h2>
-    </div>
-    <div id="carouselExampleCaptions" class="carousel slide">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="images/image_1.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                <h5><a href="#">First slide label</a></h5>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="images/image_2.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                <h5><a href="#">First slide label</a></h5>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="images/image_3.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                <h5><a href="#">First slide label</a></h5>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-</div>
-<!--блок карусели END-->
-
 <!--блок main-->
 <div class="container">
     <div class="content row">
         <!--Main Content-->
         <div class="main-content col-md-9 col-12">
-            <h2>Последние публикации</h2>
+            <h2>Заголовок какой-то конкретной статьи</h2>
 
-            <div class="post row">
-                <div class="img col-12 col-md-4">
-                    <img src="images/image_small.jpg" alt="" class="img-thumbnail">
+            <div class=" single_post row">
+                <div class="img col-12">
+                    <img src="assets/images/image_1.jpg" alt="" class="img-thumbnail">
                 </div>
-                <div class="post_text col-12 col-md-8">
-                    <h3>
-                        <a href="#">Интересная статья на тему...</a>
-                    </h3>
+                <div class="info">
                     <i class="far fa-user">Имя Автора</i>
-                    <i class="far fa-calendar">April 19, 2023</i>
-                    <p class="preview-text">
-                        Lorem ipsum dolor sit amet consectetur, adipiscing elit. 
-                        Exercitationem optio possimus in Inventure Maxime Laborum.
-                    </p>
+                    <i class="far fa-calendar">April 20, 2023</i>
+                </div>
+                <div class="single_post_text col-12">
+                    <h3>Заголовок третьего уровня</h3>
+                    <p>Задача организации, в особенности же укрепление и развитие структуры обеспечивает широкому кругу (специалистов) участие в формировании новых предложений. Разнообразный и богатый опыт реализация намеченных плановых заданий требуют от нас анализа систем массового участия. Значимость этих проблем настолько очевидна, что сложившаяся структура организации представляет собой интересный эксперимент проверки форм развития. Задача организации, в особенности же постоянный количественный рост и сфера нашей активности играет важную роль в формировании новых предложений. Значимость этих проблем настолько очевидна, что начало повседневной работы по формированию позиции обеспечивает широкому кругу (специалистов) участие в формировании системы обучения кадров, соответствует насущным потребностям.</p>
+
+                    <p>Задача организации, в особенности же укрепление и развитие структуры обеспечивает широкому кругу (специалистов) участие в формировании новых предложений. Разнообразный и богатый опыт реализация намеченных плановых заданий требуют от нас анализа систем массового участия. Значимость этих проблем настолько очевидна, что сложившаяся структура организации представляет собой интересный эксперимент проверки форм развития.</p>
+
+                    <p>Задача организации, в особенности же укрепление и развитие структуры обеспечивает широкому кругу (специалистов) участие в формировании новых предложений. Разнообразный и богатый опыт реализация намеченных плановых заданий требуют от нас анализа систем массового участия. Значимость этих проблем настолько очевидна, что сложившаяся структура организации представляет собой интересный эксперимент проверки форм развития. Задача организации, в особенности же постоянный количественный рост и сфера нашей активности играет важную роль в формировании новых предложений. Значимость этих проблем настолько очевидна, что начало повседневной работы по формированию позиции обеспечивает широкому кругу (специалистов) участие в формировании системы обучения кадров, соответствует насущным потребностям.</p>
                 </div>
             </div>
-            <div class="post row">
-                <div class="img col-12 col-md-4">
-                    <img src="images/image_small.jpg" alt="" class="img-thumbnail">
-                </div>
-                <div class="post_text col-12 col-md-8">
-                    <h3>
-                        <a href="#">Интересная статья на тему...</a>
-                    </h3>
-                    <i class="far fa-user">Имя Автора</i>
-                    <i class="far fa-calendar">April 19, 2023</i>
-                    <p class="preview-text">
-                        Lorem ipsum dolor sit amet consectetur, adipiscing elit. 
-                        Exercitationem optio possimus in Inventure Maxime Laborum.
-                    </p>
-                </div>
-            </div>
-            <div class="post row">
-                <div class="img col-12 col-md-4">
-                    <img src="images/image_small.jpg" alt="" class="img-thumbnail">
-                </div>
-                <div class="post_text col-12 col-md-8">
-                    <h3>
-                        <a href="#">Интересная статья на тему...</a>
-                    </h3>
-                    <i class="far fa-user">Имя Автора</i>
-                    <i class="far fa-calendar">April 19, 2023</i>
-                    <p class="preview-text">
-                        Lorem ipsum dolor sit amet consectetur, adipiscing elit. 
-                        Exercitationem optio possimus in Inventure Maxime Laborum.
-                    </p>
-                </div>
-            </div>
+            
         </div>
         <!-- sidebar Content-->
         <div class="sidebar col-md-3 col-12">
