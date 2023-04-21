@@ -305,3 +305,13 @@ SINGLE_POST
 .reg_form button{
     margin: 30px 0;
 }
+
+/*
+    FORMS
+*/
+
+form div.err p{
+    color:red;
+    font-style: italic;
+    font-size: 0.8rem;
+}
