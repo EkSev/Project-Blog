@@ -95,6 +95,7 @@ function insert($table, $params){
     $query = $pdo->prepare($sql);
     $query->execute();
     dbCheckError($query);
+    return $pdo->lastInsertId();
 }
 
 // Обновление строки в таблице
@@ -125,3 +126,4 @@ function delete($table, $id){
     $query->execute();
     dbCheckError($query);
 }
+
