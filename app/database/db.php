@@ -97,11 +97,31 @@ function insert($table, $params){
     dbCheckError($query);
 }
 
-$arrData = [
-    'admin' => '1',
-    'username' => 'Egor',
-    'email' => 'Egor@test.com',
-    'password' => '1s14df214'
-];
+// Обновление строки в таблице
+function update($table, $id, $params){
+    global $pdo;
+    $i = 0;
+    $str = '';
+    foreach ($params as $key => $value){
+        if ($i === 0){
+            $str = $str . $key . " = '" . $value . "'";
+        }else{
+            $str = $str . ", " . $key . " = '" . $value . "'";
+        }
+        $i++;
+    }
 
-insert('users', $arrData);
+    $sql = "UPDATE $table SET $str WHERE id = $id";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+}
+
+// Удаление пользователя из таблицы
+function delete($table, $id){
+    global $pdo;
+    $sql = "DELETE FROM $table WHERE id = $id";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+}
