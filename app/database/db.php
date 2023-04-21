@@ -73,11 +73,35 @@ function selectOne($table, $params = []){
 }
 
 
-$params = [
-    'admin' => 1,
-    'username' => 'Elena'
+// Запись в таблицу БД
+function insert($table, $params){
+    global $pdo;
+    $i = 0;
+    $coll = '';
+    $mask = '';
+    foreach ($params as $key => $value){
+        if ($i === 0){
+            $coll = $coll . "$key";
+            $mask = $mask . "'" . "$value" . "'";
+        }else{
+            $coll = $coll . ", $key";
+            $mask = $mask . ", '" . "$value" . "'";
+        }
+        $i++;
+    }
+
+    $sql = "INSERT INTO $table ($coll) VALUES ($mask)";
+    
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+}
+
+$arrData = [
+    'admin' => '1',
+    'username' => 'Egor',
+    'email' => 'Egor@test.com',
+    'password' => '1s14df214'
 ];
 
-
-//tt(selectAll('users', $params));
-tt(selectOne('users', $params));
+insert('users', $arrData);
