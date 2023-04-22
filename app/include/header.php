@@ -25,12 +25,12 @@
                                 <li><a href="#">Выход</a></li>
                             </ul>
                         <?php else: ?>
-                            <a href="<?php echo BASE_URL . log.php; ?>">
+                            <a href="<?php echo BASE_URL . "log.php"; ?>">
                                 <i class="fa fa-user"></i>
                                 Войти
                             </a>
                             <ul>
-                                <li><a href="<?php echo BASE_URL . reg.php; ?>">Регистрация</a></li>
+                                <li><a href="<?php echo BASE_URL . "reg.php"; ?>">Регистрация</a></li>
                             </ul>
                         <?php endif; ?>
                     </li>
