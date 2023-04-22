@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 require 'connect.php';
 
 function tt($value){
@@ -65,7 +66,6 @@ function selectOne($table, $params = []){
         }
     }
 
-//    $sql = $sql . " LIMIT 1";
     $query = $pdo->prepare($sql);
     $query->execute();
     dbCheckError($query);
