@@ -1,7 +1,6 @@
 <?php 
 session_start();
 include("../../path.php"); 
-// include("../../app/database/db.php");
 ?>
 
 <!doctype html>
