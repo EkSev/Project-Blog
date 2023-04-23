@@ -17,18 +17,9 @@ a{
     text-decoration: none;
     color: inherit;
 }
-input{
-    padding: 10px 12px;
-    display: block;
-    width: 100%;
-    border-radius: 3px;
-    border: 1px solid #ececee;
-    line-height: 1.5em;
-    color: #444444;
-    font-size: 1rem;
-}
+
 /*
-    HEADER
+    HEADER MENU
 */
 header{
     background: #008484;
@@ -42,6 +33,7 @@ header h1{
 }
 header h1 a{
     color: #ffffff;
+    text-decoration: none;
 }
 header h1 a:hover{
     color: #ffffff;
@@ -86,103 +78,6 @@ header ul li ul li a{
     padding: 10px;
     background: white;
     color: #008489;
-}
-/*
-    SLIDER
-*/
-.slider-title{
-    text-align: center;
-    padding: 30px 0;
-}
-.carousel-inner{
-    border-radius: 4px;
-}
-/*
-.carousel-caption h5{
-    font-size: 2rem;
-    font-weight: 500;
-    background: #000000;
-    max-width: 100%;
-    padding: 0.2em;
-    opacity: 0.5;
-*/
-.carousel-caption h5{
-    font-size: 2rem;
-    font-weight: 500;
-}
-.carousel-caption h5 a{
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 500;
-}
-.carousel-caption h5 a:hover{
-    text-decoration: underline;
-}
-/*
-.carousel-item img{
-    width: 1590px;
-    height: 400px;
-}
-*/
-/*
-    Main
-*/
-.main-content h2{
-    margin: 30px 0;
-}
-.main-content .post{
-    margin-bottom: 30px;
-}
-.main-content .post_text{
-    background: #ffffff;
-    padding: 8px;
-    border-radius: 3px;
-}
-.main-content .post_text h3{
-    margin: 14px 0;
-}
-.main-content .post_text h3 a:hover{
-    text-decoration: underline;
-    color: #5c5b5b;
-}
-.main-content .post_text i{
-    margin: 0 14px 14px 0;
-}
-.main-content .post img{
-    width: 306px;
-    height: 208px;
-}
-/*
-    Sidebar
-*/
-.search{
-    margin-top: 96px;
-}
-.sidebar .section{
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 3px;
-    margin-bottom: 30px;
-}
-.sidebar .topics ul{
-    margin: 0px;
-    padding: 0px;
-    list-style: none;
-    border-top: 1px solid #e0e0e0;
-}
-.sidebar .topics ul a{
-    display: block;
-    padding: 15px 0 15px 0;
-    border-bottom: 1px solid #e0e0e0;
-    transition: all 0.3s;
-    text-decoration: none;
-    font-weight: 500;
-    color: #5c5b5b;
-    font-size: 1.2em;
-}
-.sidebar .topics ul a:hover{
-    padding-left: 10px;
-    transition: all 0.3s;
 }
 /* 
     FOOTER
@@ -317,4 +212,67 @@ form div.err p{
     color:red;
     font-style: italic;
     font-size: 0.8rem;
+}
+
+/*
+SIDEBAR
+*/
+
+.sidebar{
+    margin: 1rem 0;
+    background: #006669;
+    min-height: 600px;
+}
+.sidebar ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: #d3d3d3;
+}
+.sidebar ul a{
+    padding: 18px;
+    display: block;
+    border-bottom: 1px solid #ffffff;
+}
+.sidebar ul a:hover{
+    padding-left: 10px;
+    transition: all 0.3s;
+    color: #d3d3d3;
+    text-decoration: none;
+}
+.posts{
+    height: 100%;
+    padding: 40px 100px 100px;
+}
+.posts h2{
+    text-align: center;
+    margin: 1.5rem 0;
+}
+.posts .title-table div{
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #d3d3d3;
+    font-weight: 700;
+}
+.posts .post div{
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #d3d3d3;
+}
+.posts .post .red{
+    color: #006669;
+}
+.posts .post .red:hover{
+    color: #006669;
+    font-weight: bold;
+}
+.posts .post .del{
+    color: red;
+}
+.posts .post .del:hover{
+    color: red;
+    font-weight: bold;
+}
+.posts .post .id{
+    font-weight: bold;
 }
