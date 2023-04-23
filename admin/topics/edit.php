@@ -33,10 +33,11 @@ include("../../app/controllers/topics.php");
                 <a href="<?php echo BASE_URL . "admin/topics/index.php"; ?>" class="col-3 btn btn-warning">Редактировать</a>
             </div>
             <div class="row title-table">
-                <h2>Создать категорию</h2>
+                <h2>Обновление категории</h2>
             </div>
             <div class="row add-post">
-                <form action="create.php" method="post">
+                <form action="edit.php" method="post">
+                <input name="id" value="<?= $id; ?>" type="hidden">
                     <div class="mb-12 col-12 col-md-12 err">
                         <p><?= $errMsg ?></p>
                     </div>
@@ -49,7 +50,7 @@ include("../../app/controllers/topics.php");
                         <textarea name="description" class="form-control" id="content" rows="3"><?= $description; ?></textarea>
                     </div>
                     <div class="col">
-                        <button name="topic-create" class="btn btn-primary" type="submit">Создать категорию</button>
+                        <button name="topic-edit" class="btn btn-primary" type="submit">Обновить категорию</button>
                     </div>
                 </form>
             </div>

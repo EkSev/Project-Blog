@@ -31,8 +31,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-reg'])){
         $errMsg = "Пароли в обоих полях должны соответствовать!";
     }else{
         $existence = selectOne('users', ['email' => $email]);
-        // if (!empty($existence['email']) && $existence['email'] === $email){
-        if($existence['email'] === $email){
+        if (!empty($existence['email']) && $existence['email'] === $email){
+        //if($existence['email'] === $email){
             $errMsg = "Пользователь с такой почтой уже зарегистрирован!";
         }else{
             $pass = password_hash($passF, PASSWORD_DEFAULT);
