@@ -39,7 +39,8 @@ include("../../app/controllers/topics.php");
                 <form action="edit.php" method="post">
                 <input name="id" value="<?= $id; ?>" type="hidden">
                     <div class="mb-12 col-12 col-md-12 err">
-                        <p><?= $errMsg ?></p>
+                        <!-- Вывод массива с обишками -->
+                        <?php include("../../app/helps/errorInfo.php"); ?>
                     </div>
                     <div class="w-100"></div>
                     <div class="col">

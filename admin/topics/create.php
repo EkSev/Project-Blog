@@ -38,7 +38,8 @@ include("../../app/controllers/topics.php");
             <div class="row add-post">
                 <form action="create.php" method="post">
                     <div class="mb-12 col-12 col-md-12 err">
-                        <p><?= $errMsg ?></p>
+                        <!-- Вывод массива с обишками -->
+                        <?php include("../../app/helps/errorInfo.php"); ?>
                     </div>
                     <div class="w-100"></div>
                     <div class="col">

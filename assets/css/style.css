@@ -312,10 +312,21 @@ SINGLE_POST
 /*
     FORMS
 */
-
+/*
 form div.err p{
     color:red;
     font-style: italic;
     font-size: 0.8rem;
 }
-
+*/
+/*
+    error msg
+*/
+.reg_form .err{
+    color:red;
+}
+.reg_form .err ul{
+    list-style-type: none;
+    color:red;
+    padding-left: 0;
+}

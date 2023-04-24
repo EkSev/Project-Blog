@@ -28,7 +28,8 @@
     <form class="row justify-content-center" method="post" action="reg.php">
         <h2>Форма регистрации</h2>
         <div class="mb-3 col-12 col-md-4 err">
-            <p><?= $errMsg ?></p>
+            <!-- Вывод массива с обишками -->
+            <p><?php include("app/helps/errorInfo.php"); ?></p>
         </div>
         <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">

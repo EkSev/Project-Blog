@@ -29,7 +29,8 @@ include("app/controllers/users.php");
     <h2 class="col-12">Авторизация</h2>
     <form class="row justify-content-center" method="post" action="log.php">
         <div class="mb-3 col-12 col-md-4 err">
-            <p><?= $errMsg ?></p>
+            <!-- Вывод массива с обишками -->
+            <?php include("app/helps/errorInfo.php"); ?>
         </div>
         <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">

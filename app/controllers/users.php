@@ -1,7 +1,7 @@
 <?php
-include("app/database/db.php");
+include(SITE_ROOT . "/app/database/db.php");
 
-$errMsg = '';
+$errMsg = [];
 
 function userAuth($user){
     $_SESSION['id'] = $user['id'];
@@ -24,16 +24,16 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-reg'])){
     $passS = trim($_POST['pass-second']);
 
     if($login === '' || $email === '' || $passF === ''){
-        $errMsg = "Не все поля заполнены!";
+        array_push($errMsg, "Не все поля заполнены!");
     }elseif (mb_strlen($login, 'UTF8') < 2){
-        $errMsg = "Логин должен быть более 2-х символов!";
+        array_push($errMsg, "Логин должен быть более 2-х символов!");
     }elseif ($passF !== $passS){
-        $errMsg = "Пароли в обоих полях должны соответствовать!";
+        array_push($errMsg, "Пароли в обоих полях должны соответствовать!");
     }else{
         $existence = selectOne('users', ['email' => $email]);
         if (!empty($existence['email']) && $existence['email'] === $email){
         //if($existence['email'] === $email){
-            $errMsg = "Пользователь с такой почтой уже зарегистрирован!";
+            array_push($errMsg, "Пользователь с такой почтой уже зарегистрирован!");
         }else{
             $pass = password_hash($passF, PASSWORD_DEFAULT);
             $post = [
@@ -60,16 +60,56 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-log'])){
     $pass = trim($_POST['password']);
 
     if($email === '' || $pass === ''){
-        $errMsg = "Не все поля заполнены!";
+        array_push($errMsg, "Не все поля заполнены!");
     }else{
         $existence = selectOne('users', ['email' => $email]);
         if($existence && password_verify($pass, $existence['password'])){
             userAuth($existence);
         }else{
-            $errMsg = "Почта либо пароль введены неверно!";
+            array_push($errMsg, "Почта либо пароль введены неверно!");
         }
     }
 }else{
+    $email = '';
+}
+
+// Код добавления пользователя в админке
+if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['create-user'])){
+
+    $admin = 0;
+    $login = trim($_POST['login']);
+    $email = trim($_POST['mail']);
+    $passF = trim($_POST['pass-first']);
+    $passS = trim($_POST['pass-second']);
+
+    if($login === '' || $email === '' || $passF === ''){
+        array_push($errMsg, "Не все поля заполнены!");
+    }elseif (mb_strlen($login, 'UTF8') < 2){
+        array_push($errMsg, "Логин должен быть более 2-х символов!");
+    }elseif ($passF !== $passS){
+        array_push($errMsg, "Пароли в обоих полях должны соответствовать!");
+    }else{
+        $existence = selectOne('users', ['email' => $email]);
+        if (!empty($existence['email']) && $existence['email'] === $email){
+        //if($existence['email'] === $email){
+            array_push($errMsg, "Пользователь с такой почтой уже зарегистрирован!");
+        }else{
+            $pass = password_hash($passF, PASSWORD_DEFAULT);
+            if (isset($_POST['admin'])) $admin = 1;
+            $user = [
+                'admin' => $admin,
+                'username' => $login,
+                'email' => $email,
+                'password' => $pass
+            ];
+            $id = insert('users', $user);
+            $user = selectOne('users', ['id' => $id]);
+
+            userAuth($user);
+        }
+    }
+}else{
+    $login = '';
     $email = '';
 }
 

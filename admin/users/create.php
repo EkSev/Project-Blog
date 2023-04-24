@@ -1,6 +1,6 @@
 <?php 
-session_start();
 include("../../path.php");
+include("../../app/controllers/users.php");
 ?>
 
 <!doctype html>
@@ -37,6 +37,10 @@ include("../../path.php");
             </div>
             <div class="row add-post">
                 <form action="create.php" method="post">
+                    <div class="mb-12 col-12 col-md-12 err">
+                        <!-- Вывод массива с обишками -->
+                        <?php include("../../app/helps/errorInfo.php"); ?>
+                    </div>
                     <div class="col">
                         <label for="formGroupExampleInput" class="form-label">Ваш логин</label>
                         <input name="login" value="" type="text" class="form-control" id="formGroupExampleInput" placeholder="Введите ваш логин...">
@@ -53,12 +57,12 @@ include("../../path.php");
                         <label for="exampleInputPassword2" class="form-label">Повторите пароль</label>
                         <input name="pass-second" type="password" class="form-control" id="exampleInputPassword2" placeholder="Повторите ваш пароль...">
                     </div>
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>User</option>
-                        <option value="1">Admin</option>
-                    </select>
+                    <input name="admin" class="form-check-input" value="1" type="checkbox" id="flexCheckChecked">
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Admin
+                        </label>
                     <div class="col">
-                        <button class="btn btn-primary" type="submit">Создать</button>
+                        <button name="create-user" class="btn btn-primary" type="submit">Создать</button>
                     </div>
                 </form>
             </div>
