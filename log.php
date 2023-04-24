@@ -35,7 +35,7 @@ include("app/controllers/users.php");
         <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">
             <label for="formGroupExampleInput" class="form-label">Ваша почта (при регистрации)</label>
-            <input name="mail" value="<?=$email?>" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите ваш email...">
+            <input name="mail" value="<?= $email; ?>" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите ваш email...">
         </div>
         <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">

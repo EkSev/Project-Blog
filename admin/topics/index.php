@@ -35,14 +35,15 @@ include("../../app/controllers/topics.php");
             </div>
             <div class="row title-table">
                 <h2>Управление категориями</h2>
+                <div class="w-100"></div>
                 <div class="col-1">ID</div>
-                <div class="col-5">Название</div>
+                <div class="col-7">Название</div>
                 <div class="col-4">Управление</div>
             </div>
             <?php foreach($topics as $key => $topic): ?>
             <div class="row post">
                 <div class="id col-1"><?= $key + 1; ?></div>
-                <div class="title col-5"><?= $topic['name']; ?></div>
+                <div class="title col-7"><?= $topic['name']; ?></div>
                 <div class="red col-2"><a href="edit.php?id=<?= $topic['id']; ?>">edit</a></div>
                 <div class="del col-2"><a href="edit.php?del_id=<?= $topic['id']; ?>">delete</a></div>
             </div>

@@ -43,11 +43,11 @@ include("../../app/controllers/users.php");
                     </div>
                     <div class="col">
                         <label for="formGroupExampleInput" class="form-label">Ваш логин</label>
-                        <input name="login" value="" type="text" class="form-control" id="formGroupExampleInput" placeholder="Введите ваш логин...">
+                        <input name="login" value="<?= $login; ?>" type="text" class="form-control" id="formGroupExampleInput" placeholder="Введите ваш логин...">
                     </div>
                     <div class="col">
                         <label for="exampleInputEmail1" class="form-label">Email</label>
-                        <input name="mail" value="" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите ваш email...">
+                        <input name="mail" value="<?= $email; ?>" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите ваш email...">
                     </div>
                     <div class="col">
                         <label for="exampleInputPassword1" class="form-label">Пароль</label>

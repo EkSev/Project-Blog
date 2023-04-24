@@ -34,6 +34,7 @@ include("../../app/controllers/posts.php");
             </div>
             <div class="row title-table">
                 <h2>Управление записями</h2>
+                <div class="w-100"></div>
                 <div class="col-1">ID</div>
                 <div class="col-5">Название</div>
                 <div class="col-2">Автор</div>

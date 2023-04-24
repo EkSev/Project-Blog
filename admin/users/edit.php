@@ -1,5 +1,5 @@
 <?php 
-include("../../path.php"); 
+include("../../path.php");
 include("../../app/controllers/users.php");
 ?>
 
@@ -33,28 +33,32 @@ include("../../app/controllers/users.php");
                 <a href="<?php echo BASE_URL . "admin/users/index.php"; ?>" class="col-3 btn btn-warning">Редактировать</a>
             </div>
             <div class="row title-table">
-                <h2>Пользователи</h2>
-                <div class="w-100"></div>
-                <div class="col-1">ID</div>
-                <div class="col-2">Логин</div>
-                <div class="col-3">Email</div>
-                <div class="col-2">Роль</div>
-                <div class="col-4">Управление</div>
+                <h2>Создать пользователя</h2>
             </div>
-            <?php foreach($users as $key => $user): ?>
-            <div class="row post">
-                <div class="col-1"><?= $user['id']; ?></div>
-                <div class="col-2"><?= $user['username']; ?></div>
-                <div class="col-3"><?= $user['email']; ?></div>
-                <?php if($user['admin'] == 1): ?>
-                    <div class="col-2">Admin</div>
-                <?php else: ?>
-                    <div class="col-2">User</div>
-                <?php endif; ?>
-                <div class="red col-2"><a href="edit.php?edit_id=<?= $user['id']; ?>">edit</a></div>
-                <div class="del col-2"><a href="index.php?delete_id=<?= $user['id']; ?>">delete</a></div>
+            <div class="row add-post">
+                <form action="edit.php" method="post">
+                    <div class="mb-12 col-12 col-md-12 err">
+                        <!-- Вывод массива с обишками -->
+                        <?php include("../../app/helps/errorInfo.php"); ?>
+                    </div>
+                    <input name="id" value="<?= $id; ?>" type="hidden">
+                    <div class="col">
+                        <label for="formGroupExampleInput" class="form-label">Логин</label>
+                        <input name="login" value="<?= $username; ?>" type="text" class="form-control" id="formGroupExampleInput" placeholder="Введите ваш логин...">
+                    </div>
+                    <div class="col">
+                        <label for="exampleInputEmail1" class="form-label">Email</label>
+                        <input name="mail" value="<?= $email; ?>" type="email" class="form-control" readonly id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите ваш email...">
+                    </div>
+                    <input name="admin" class="form-check-input" value="1" type="checkbox" id="flexCheckChecked">
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Admin
+                        </label>
+                    <div class="col">
+                        <button name="update-user" class="btn btn-primary" type="submit">Обновить</button>
+                    </div>
+                </form>
             </div>
-            <?php endforeach; ?>
         </div>
     </div>
 </div>

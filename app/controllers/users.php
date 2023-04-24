@@ -3,6 +3,7 @@ include(SITE_ROOT . "/app/database/db.php");
 
 $errMsg = [];
 
+
 function userAuth($user){
     $_SESSION['id'] = $user['id'];
     $_SESSION['login'] = $user['username'];
@@ -13,6 +14,8 @@ function userAuth($user){
         header('location: ' . BASE_URL);
     }
 }
+
+$users = selectAll('users');
 
 // Код для формы регистрации
 if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-reg'])){
@@ -73,7 +76,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-log'])){
     $email = '';
 }
 
-// Код добавления пользователя в админке
+// Добавления пользователя в админке
 if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['create-user'])){
 
     $admin = 0;
@@ -111,5 +114,47 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['create-user'])){
 }else{
     $login = '';
     $email = '';
+}
+
+// Удаление пользователя в админке
+if($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['delete_id'])){
+    $id = $_GET['delete_id'];
+    delete('users', $id);
+    header('location: ' . BASE_URL . 'admin/users/index.php');
+}
+
+// Редактирование пользователя в админке
+if($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['edit_id'])){
+    $user = selectOne('users', ['id' => $_GET['edit_id']]);
+
+    $id = $user['id'];
+    $admin = $user['admin'];
+    $username = $user['username'];
+    $email = $user['email'];
+
+}
+
+if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update-user'])){
+
+    $id = $_POST['id'];
+    $mail = trim($_POST['mail']);
+    $login = trim($_POST['login']);
+    $admin = isset($_POST['admin']) ? 1 : 0;
+
+    if($login === ''){
+        array_push($errMsg, "Не все поля заполнены!");
+    }elseif (mb_strlen($login, 'UTF8') < 2){
+        array_push($errMsg, "Логин должн быть более 2-х символов!");
+    }else{
+        if (isset($_POST['admin'])) $admin = 1;
+        $user = [
+            'admin' => $admin,
+            'username' => $login,
+            'email' => $mail
+        ];
+        
+        $user = update('users', $id, $user);
+        header('location: ' . BASE_URL . 'admin/users/index.php');
+    }
 }
 
