@@ -280,3 +280,15 @@ SIDEBAR
 .add-post form div{
     margin: 2rem 0;
 }
+
+/*
+    error msg
+*/
+.add-post .err{
+    color:red;
+}
+.add-post .err ul{
+    list-style-type: none;
+    color:red;
+    padding-left: 0;
+}
