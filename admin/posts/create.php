@@ -36,7 +36,7 @@ include("../../app/controllers/posts.php");
                 <h2>Добавление записи</h2>
             </div>
             <div class="row add-post">
-                <form action="create.php" method="post">
+                <form action="create.php" method="post" enctype="multipart/form-data">
                     <div class="col">
                         <input name="title" type="text" class="form-control" placeholder="Title" aria-label="Название статьи">
                     </div>
