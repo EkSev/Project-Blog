@@ -54,7 +54,13 @@ include("../../app/controllers/posts.php");
                             <option value="<?= $topic['id']; ?>"><?= $topic['name']; ?></option>
                         <?php endforeach; ?>
                     </select>
-                    <div class="col">
+                    <div class="form-check">
+                        <input name="publish" class="form-check-input" type="checkbox" value="1" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Publish
+                        </label>
+                    </div>
+                    <div class="col col-6">
                         <button name="add_post" class="btn btn-primary" type="submit">Добавить запись</button>
                     </div>
                 </form>
