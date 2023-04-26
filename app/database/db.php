@@ -193,3 +193,27 @@ function selectPostFromPostsWithUsersOnSingle($table1, $table2, $id){
     dbCheckError($query);
     return $query->fetch();
 }
+
+// Выборка записей (posts) с автором для category
+function selectAllFromPostsWithUsersOnCategory($table1, $table2, $params = []){
+    global $pdo;
+    $sql = "SELECT p.*, u.username FROM $table1 AS p JOIN $table2 AS u ON p.id_user = u.id WHERE p.status=1";
+
+    if(!empty($params)){
+        $i = 0;
+        foreach ($params as $key => $value){
+            if (!is_numeric($value)){
+                $value = "'".$value."'";
+            }
+            
+                $sql = $sql . " AND $key=$value";
+            
+            $i++;
+        }
+    }
+    
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+    return $query->fetchAll();
+}
