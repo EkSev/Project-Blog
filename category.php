@@ -1,10 +1,9 @@
 <?php 
 include("path.php"); 
 include("app/controllers/topics.php");
-//$posts = selectAll('posts', ['id_topic' => $_GET['id']]);
 $posts = selectAllFromPostsWithUsersOnCategory('posts','users', ['id_topic' => $_GET['id']]);
-$topTopic = selectTopTopicFromPostsOnIndex('posts');
 $category = selectOne('topics', ['id' => $_GET['id']]);
+
 ?>
 
 <!doctype html>

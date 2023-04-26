@@ -148,9 +148,19 @@ function selectAllFromPostsWithUsers($table1, $table2){
 }
 
 // Выборка записей (posts) с автором на главную
-function selectAllFromPostsWithUsersOnIndex($table1, $table2){
+// function selectAllFromPostsWithUsersOnIndex($table1, $table2){
+//     global $pdo;
+//     $sql = "SELECT p.*, u.username FROM $table1 AS p JOIN $table2 AS u ON p.id_user = u.id WHERE p.status=1";
+//     $query = $pdo->prepare($sql);
+//     $query->execute();
+//     dbCheckError($query);
+//     return $query->fetchAll();
+// }
+
+// Выборка записей (posts) с автором на главную 
+function selectAllFromPostsWithUsersOnIndex($table1, $table2, $limit, $offset){
     global $pdo;
-    $sql = "SELECT p.*, u.username FROM $table1 AS p JOIN $table2 AS u ON p.id_user = u.id WHERE p.status=1";
+    $sql = "SELECT p.*, u.username FROM $table1 AS p JOIN $table2 AS u ON p.id_user = u.id WHERE p.status=1 LIMIT $limit OFFSET $offset";
     $query = $pdo->prepare($sql);
     $query->execute();
     dbCheckError($query);
@@ -206,7 +216,7 @@ function selectAllFromPostsWithUsersOnCategory($table1, $table2, $params = []){
                 $value = "'".$value."'";
             }
             
-                $sql = $sql . " AND $key=$value";
+            $sql = $sql . " AND $key=$value";
             
             $i++;
         }
@@ -216,4 +226,39 @@ function selectAllFromPostsWithUsersOnCategory($table1, $table2, $params = []){
     $query->execute();
     dbCheckError($query);
     return $query->fetchAll();
+}
+
+// Выборка записей (posts) с автором для category с pagination
+// function selectAllFromPostsWithUsersOnCategory($table1, $table2, $limit, $offset, $params = []){
+//     global $pdo;
+//     $sql = "SELECT p.*, u.username FROM $table1 AS p JOIN $table2 AS u ON p.id_user = u.id WHERE p.status=1";
+
+//     if(!empty($params)){
+//         $i = 0;
+//         foreach ($params as $key => $value){
+//             if (!is_numeric($value)){
+//                 $value = "'".$value."'";
+//             }
+            
+//             $sql = $sql . " AND $key=$value";
+            
+//             $i++;
+//         }
+//     }
+//     $sql = $sql . " LIMIT $limit OFFSET $offset";
+    
+//     $query = $pdo->prepare($sql);
+//     $query->execute();
+//     dbCheckError($query);
+//     return $query->fetchAll();
+// }
+
+// Выборка записи (posts) с автором для single
+function countRow($table){
+    global $pdo;
+    $sql = "SELECT COUNT(*) FROM $table WHERE status = 1";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+    return $query->fetchColumn();
 }

@@ -1,8 +1,15 @@
 <?php 
 include("path.php"); 
 include("app/controllers/topics.php");
-$posts = selectAllFromPostsWithUsersOnIndex('posts','users');
+
+$page = isset($_GET['page']) ? $_GET['page']: 1;
+$limit = 2;
+$offset = $limit * ($page - 1);
+$total_pages = round(countRow('posts') / $limit, 0);
+
+$posts = selectAllFromPostsWithUsersOnIndex('posts','users', $limit, $offset);
 $topTopic = selectTopTopicFromPostsOnIndex('posts');
+
 ?>
 
 <!doctype html>
@@ -83,6 +90,8 @@ $topTopic = selectTopTopicFromPostsOnIndex('posts');
                     </div>
                 </div>
             <?php endforeach; ?>
+            <!-- Навигация -->
+            <?php include("app/include/pagination.php"); ?>
         </div>
         <!-- sidebar Content-->
         <div class="sidebar col-md-3 col-12">
