@@ -145,7 +145,6 @@ function selectAllFromPostsWithUsers($table1, $table2){
     $query->execute();
     dbCheckError($query);
     return $query->fetchAll();
-
 }
 
 // Выборка записей (posts) с автором на главную
@@ -156,7 +155,6 @@ function selectAllFromPostsWithUsersOnIndex($table1, $table2){
     $query->execute();
     dbCheckError($query);
     return $query->fetchAll();
-
 }
 
 // Выборка записей (posts) в слайдшоу с автором на главную 
@@ -167,7 +165,6 @@ function selectTopTopicFromPostsOnIndex($table1){
     $query->execute();
     dbCheckError($query);
     return $query->fetchAll();
-
 }
 
 // Поиск по заголовкам и содержимому 
@@ -185,5 +182,14 @@ function searchInTitleAndContent($text, $table1, $table2){
     $query->execute();
     dbCheckError($query);
     return $query->fetchAll();
+}
 
+// Выборка записи (posts) с автором для single
+function selectPostFromPostsWithUsersOnSingle($table1, $table2, $id){
+    global $pdo;
+    $sql = "SELECT p.*, u.username FROM $table1 AS p JOIN $table2 AS u ON p.id_user = u.id WHERE p.id=$id";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+    return $query->fetch();
 }
