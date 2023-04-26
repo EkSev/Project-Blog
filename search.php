@@ -1,8 +1,9 @@
 <?php 
 include("path.php"); 
 include("app/controllers/topics.php");
-$posts = selectAllFromPostsWithUsersOnIndex('posts','users');
-$topTopic = selectTopTopicFromPostsOnIndex('posts');
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['search-term'])){
+    $posts = searchInTitleAndContent($_POST['search-term'], 'posts', 'users');
+}
 ?>
 
 <!doctype html>
@@ -26,46 +27,12 @@ $topTopic = selectTopTopicFromPostsOnIndex('posts');
 
 <?php include("app/include/header.php"); ?>
 
-<!--блок карусели START-->
-<div class="container">
-    <div class="row">
-        <h2 class="slider-title">Топ публикации</h2>
-    </div>
-    <div id="carouselExampleCaptions" class="carousel slide">
-         
-        <div class="carousel-inner">
-            <?php foreach($topTopic as $key => $post): ?> 
-                <?php if($key == 0): ?>
-                    <div class="carousel-item active">
-                <?php else: ?>
-                    <div class="carousel-item">
-                <?php endif; ?>
-                    <img src="<?= BASE_URL . 'assets/images/posts/' . $post['img'] ?>" alt="<?= $post['title'] ?>" class="d-block w-100">
-                    <div class="carousel-caption d-none d-md-block">
-                    <h5><a href="<?= BASE_URL . 'single.php?post=' . $post['id']; ?>"><?= substr($post['title'], 0, 80) . '...' ?></a></h5>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        </div>
-        
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-</div>
-<!--блок карусели END-->
-
 <!--блок main-->
 <div class="container">
     <div class="content row">
         <!--Main Content-->
         <div class="main-content col-md-9 col-12">
-            <h2>Последние публикации</h2>
+            <h2>Результаты поиска</h2>
             <?php foreach($posts as $post): ?>  
                 <div class="post row">
                     <div class="img col-12 col-md-4">

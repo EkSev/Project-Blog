@@ -159,10 +159,28 @@ function selectAllFromPostsWithUsersOnIndex($table1, $table2){
 
 }
 
-// Выборка записей (posts) с автором на главную
+// Выборка записей (posts) в слайдшоу с автором на главную 
 function selectTopTopicFromPostsOnIndex($table1){
     global $pdo;
-    $sql = "SELECT * FROM $table1 WHERE id_topic = 20";
+    $sql = "SELECT * FROM $table1 WHERE id_topic = 20 AND status = 1";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+    return $query->fetchAll();
+
+}
+
+// Поиск по заголовкам и содержимому 
+function searchInTitleAndContent($text, $table1, $table2){
+    $text = trim(strip_tags(stripslashes(htmlspecialchars($text))));
+    global $pdo;
+    $sql = "SELECT 
+    p.*, u.username 
+    FROM $table1 AS p 
+    JOIN $table2 AS u 
+    ON p.id_user = u.id 
+    WHERE p.status=1
+    AND p.title LIKE '%$text%' OR p.content LIKE '%$text%'";
     $query = $pdo->prepare($sql);
     $query->execute();
     dbCheckError($query);
