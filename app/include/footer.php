@@ -4,7 +4,7 @@
             <div class="footer-section about col-md-4 col-12">
                 <h3 class="logo-text">Блог</h3>
                 <p>
-                    Блог - это блог сделанный с целью обучения.
+                    TechTalk Hub - это блог сделанный с целью обучения.
                 </p>
                 <div class="contact">
                     <span><i class="fas fa-phone"></i>&nbsp; 89001112233</span>

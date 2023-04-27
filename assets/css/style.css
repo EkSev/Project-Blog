@@ -119,7 +119,7 @@ header ul li ul li a{
     text-decoration: underline;
 }
 .carousel-item img{
-    height: 400px;
+    height: 350px;
 }
 
 
@@ -155,7 +155,7 @@ header ul li ul li a{
     Sidebar
 */
 .search{
-    margin-top: 96px;
+    margin-top: 98px;
 }
 .sidebar .section{
     background: #ffffff;
@@ -328,4 +328,28 @@ form div.err p{
     list-style-type: none;
     color:red;
     padding-left: 0;
+}
+/*
+   COMMENTS
+*/
+.all-comments{
+    padding-top: 3rem;
+}
+.all-comments h3{
+    margin-bottom: 2rem;
+}
+.all-comments .one-comment{
+    padding: 1rem;
+    border: 1px solid #006669;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+.all-comments .one-comment i{
+    margin: 0.25rem 0.6rem 0 0;
+    font-weight: 600;
+}
+.all-comments .one-comment span{
+    display: inline-flex;
+    margin: 0.5rem 1.5rem 1.5rem 0;
+    font-weight: 500;
 }

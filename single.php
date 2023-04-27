@@ -43,6 +43,8 @@ $post = selectPostFromPostsWithUsersOnSingle('posts', 'users', $_GET['post']);
                 <div class="single_post_text col-12">
                 <?= $post['content']; ?>
                 </div>
+                <!-- Комментарии -->
+                <?php include("app/include/comments.php"); ?>
             </div>
             
         </div>
@@ -51,7 +53,7 @@ $post = selectPostFromPostsWithUsersOnSingle('posts', 'users', $_GET['post']);
 
             <div class="section search">
                 <h3>Поиск</h3>
-                <form action="#" method="post">
+                <form action="search.php" method="post">
                     <input type="text" name="search-term" class="text-input" placeholder="Введите искомое слово...">
                 </form>
             </div>

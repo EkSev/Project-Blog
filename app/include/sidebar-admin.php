@@ -10,6 +10,9 @@
             <li>
                 <a href="<?=BASE_URL . "admin/users/index.php"?>">Пользователи</a>
             </li>
+            <li>
+                <a href="<?=BASE_URL . "admin/comments/index.php"?>">Комментраии</a>
+            </li>
         </ul>
     </div>
 
