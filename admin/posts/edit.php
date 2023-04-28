@@ -41,8 +41,8 @@ include("../../app/controllers/posts.php");
                         <input value="<?= $post['title']; ?>" name="title" type="text" class="form-control" placeholder="Title" aria-label="Название статьи">
                     </div>
                     <div class="col">
-                        <label for="content" class="form-label">Содержимое записи</label>
-                        <textarea name="content" class="form-control" id="content" rows="6"><?= $post['content']; ?></textarea>
+                        <label for="editor" class="form-label">Содержимое записи</label>
+                        <textarea id="editor" name="content" class="form-control" rows="6"><?= $post['content']; ?></textarea>
                     </div>
                     <div class="input-group col">
                         <input name="img" type="file" class="form-control" id="inputGroupFile02">
@@ -80,5 +80,8 @@ include("../../app/controllers/posts.php");
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <!-- Добавление визуального редактора к текстовому полю в админ панели -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/37.0.1/classic/ckeditor.js"></script>
+    <script src="../../assets/js/scripts.js"></script>    
 </body>
 </html>
