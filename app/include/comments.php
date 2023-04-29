@@ -5,6 +5,10 @@ include(SITE_ROOT . "/app/controllers/commentaries.php");
 <div class="col-md-9 col-12 comments">
     <h3>Оставить комментраий</h3>
     <form action="<?= BASE_URL . "single.php?post=$page"; ?>" method="post">
+        <div class="err">
+            <!-- Вывод массива с обишками -->
+            <p><?php include("app/helps/errorInfo.php"); ?></p>
+        </div>
         <input type="hidden" name="page" value="<?= $page; ?>">
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Email адрес</label>

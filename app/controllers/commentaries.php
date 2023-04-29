@@ -21,8 +21,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['goComment'])){
         array_push($errMsg, "Комментарий должен быть более 3-х символов!");
     }else{
         $user = selectOne('users', ['email' => $email]);
-        if ($user['email'] == $email){
+        if (!empty($user['email']) && $user['email'] === $email){
             $status = 1;
+        }else{
+            array_push($errMsg, "Комментраии незарегистрированных пользователей проходят модерацию админом!");
         }
 
         $comment = [
@@ -35,6 +37,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['goComment'])){
         $comment = insert('comments', $comment);
         $comments = selectAll('comments', ['page' => $page, 'status' => 1]);
     }
+    $comments = selectAll('comments', ['page' => $page, 'status' => 1]);
 }else{
     $email = '';
     $comment = '';

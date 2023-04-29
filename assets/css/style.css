@@ -321,10 +321,10 @@ form div.err p{
 /*
     error msg
 */
-.reg_form .err{
+.err{
     color:red;
 }
-.reg_form .err ul{
+.err ul{
     list-style-type: none;
     color:red;
     padding-left: 0;
