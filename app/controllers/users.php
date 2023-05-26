@@ -35,7 +35,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-reg'])){
     }else{
         $existence = selectOne('users', ['email' => $email]);
         if (!empty($existence['email']) && $existence['email'] === $email){
-        //if($existence['email'] === $email){
             array_push($errMsg, "Пользователь с такой почтой уже зарегистрирован!");
         }else{
             $pass = password_hash($passF, PASSWORD_DEFAULT);

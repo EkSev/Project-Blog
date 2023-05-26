@@ -166,7 +166,7 @@ function selectAllFromPostsWithUsers($table1, $table2){
 // Выборка записей (posts) с автором на главную 
 function selectAllFromPostsWithUsersOnIndex($table1, $table2, $limit, $offset){
     global $pdo;
-    $sql = "SELECT p.*, u.username FROM $table1 AS p JOIN $table2 AS u ON p.id_user = u.id WHERE p.status=1 LIMIT $limit OFFSET $offset";
+    $sql = "SELECT p.*, u.username FROM $table1 AS p JOIN $table2 AS u ON p.id_user = u.id WHERE p.status=1 ORDER BY id DESC LIMIT $limit OFFSET $offset";
     $query = $pdo->prepare($sql);
     $query->execute();
     dbCheckError($query);
@@ -176,7 +176,7 @@ function selectAllFromPostsWithUsersOnIndex($table1, $table2, $limit, $offset){
 // Выборка записей (posts) в слайдшоу с автором на главную 
 function selectTopTopicFromPostsOnIndex($table1){
     global $pdo;
-    $sql = "SELECT * FROM $table1 WHERE id_topic = 20 AND status = 1";
+    $sql = "SELECT * FROM $table1 WHERE id_topic = 26 AND status = 1";
     $query = $pdo->prepare($sql);
     $query->execute();
     dbCheckError($query);

@@ -51,7 +51,7 @@ $post = selectPostFromPostsWithUsersOnSingle('posts', 'users', $_GET['post']);
         <!-- sidebar Content-->
         <div class="sidebar col-md-3 col-12">
 
-            <div class="section search">
+            <div class="section search-single">
                 <h3>Поиск</h3>
                 <form action="search.php" method="post">
                     <input type="text" name="search-term" class="text-input" placeholder="Введите искомое слово...">

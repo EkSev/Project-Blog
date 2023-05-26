@@ -157,6 +157,9 @@ header ul li ul li a{
 .search{
     margin-top: 98px;
 }
+.search-single{
+    margin-top: 30px;
+}
 .sidebar .section{
     background: #ffffff;
     padding: 20px;
@@ -282,6 +285,9 @@ SINGLE_POST
 .single_post a:hover{
     text-decoration: none;
     color: #008489;
+}
+.single_post img{
+    height: 250px;
 }
 /*
     FORMS
